@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho de internet das coisas </title>
+    <link rel="stylesheet" href="pag.css">
+</head>
+<body> 
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#sensorDeLuminosidade"> Sensor de luminosidade </a></li>
+                <li><a href="#sensorDeDistancia"> Sensor de distancia</a></li>
+                <li><a href="#Inicio"> </a> Inicio</li>
+               
+
+            </ul>
+        </nav>
+    </header>
+
+    
+    <main>
+        <section id = "Inicio">
+            <h1> Interface web destinada para mostrar informações dos sensores</h1>
+            <img src="102094492-cpu-microprocessor-microchip-circuit-board-vector-illustration-eps-10-removebg-preview.png" alt= "imagem de Inicio">
+        </section>
+        
+        <section id ="sensorDeLuminosidade">
+            <h1> Sensor de luminosidade</h1>
+            <img src="https://cdn.awsli.com.br/800x800/1563/1563093/produto/314939147/image-removebg-preview--24---1--zklp5n119r.png" alt="sensorDeLuminosidade">
+
+            <div class="informacoes">
+                <p>Valor atual do sensor</p>
+            </div>
+            <div class="sensor">
+            </div>
+        </section>
+
+        <section id = "sensorDeDistancia">
+            <h1> Sensor de distancia</h1>
+            <img src="https://d229kd5ey79jzj.cloudfront.net/620/images/620_1_H.png" alt="sensorDeDistancia">
+
+             <div class="informacoes">
+                <p id="distanciaValue"></p>
+            </div>
+            <div class="sensor">
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="rodape"> 
+        <p>Trabalho de Internet das coisas</p>
+        <p>Desenvolvido por <strong>Nicole</strong>, <strong>Rafael</strong>, <strong>Thiago</strong>, <strong>Amanda Miranda</strong> </p>
+    </footer>
+</body>
+
+    <script>
+        async function pegarValoresSensor() {
+            try {
+                const res = await fetch('http://localhost:3000/arduino');
+                const dados = await res.json();
+
+         
+                const lumElem = document.querySelector('#sensorDeLuminosidade .sensor')
+                lumElem.textContent = `Luminosidade: ${dados.luminosidade}`
+
+         
+                const distElem = document.querySelector('#distanciaValue')
+                distElem.textContent = `Distância: ${dados.distancia} cm`
+
+            } catch (error) {
+                console.error('Erro ao buscar dados do sensor:', error);
+            }
+        }
+
+   
+        setInterval(pegarValoresSensor, 1000);
+    </script>
+
+</html> 

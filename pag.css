@@ -1,0 +1,179 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fa;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333; 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    background: linear-gradient(90deg, #0056b3, #0072ff); 
+    color: #f1f1f1; 
+    padding: 1rem 0;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12); 
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #004494;
+    border-radius: 0 0 10px 10px;
+    transition: background 0.3s ease;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
+
+nav ul li a {
+    color: #f1f1f1; 
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    display: block;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+h1 {
+    font-weight: 700;
+    color: #004080cc; 
+    margin-bottom: 0.7rem;
+    letter-spacing: 0.5px;
+    font-size: 2rem;
+}
+
+#Inicio h1 {
+    color: #00408094; 
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}
+
+
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: #ffffff;
+    padding: 45px 40px;
+    margin-bottom: 35px;
+    border-radius: 15px;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid #007bff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #222; 
+}
+
+section:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.12);
+}
+
+
+#sensorDeLuminosidade, #sensorDeDistancia {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.sensor {
+    min-height: 160px; 
+    background-color: #ffffff;
+    border: 3px dashed #007bff; 
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    color: #007bff; 
+    font-weight: bold;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sensor:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0,123,255,0.25);
+}
+
+.informacoes {
+    padding: 22px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    text-align: center;
+    box-shadow: inset 0 0 12px rgba(0,0,0,0.04);
+    color: #333;
+}
+
+.informacoes p {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+
+footer {
+    background-color: #343a40; 
+    color: #f1f1f1; 
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 40px;
+    font-size: 0.95rem;
+    border-top: 3px solid #007bff;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.08);
+    border-radius: 10px 10px 0 0;
+}
+
+
+@media (max-width: 768px) {
+    #sensorDeLuminosidade, #sensorDeDistancia {
+        grid-template-columns: 1fr;
+    }
+
+    section h1 {
+        grid-column: 1;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #Inicio h1 {
+        font-size: 2rem;
+    }
+
+    .sensor {
+        min-height: 140px;
+        font-size: 1.4rem;
+    }
+}
