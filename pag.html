@@ -33,7 +33,7 @@
             <div class="informacoes">
                 <p>Valor atual do sensor</p>
             </div>
-            <div class="sensor">
+            <div class="sensor" id="luz">
             </div>
         </section>
 
@@ -59,16 +59,13 @@
     <script>
         async function pegarValoresSensor() {
             try {
-                const res = await fetch('http://localhost:3000/arduino');
+                const res = await fetch('http://localhost:3000/teste');
                 const dados = await res.json();
 
          
-                const lumElem = document.querySelector('#sensorDeLuminosidade .sensor')
-                lumElem.textContent = `Luminosidade: ${dados.luminosidade}`
+                const lumElem = document.getElementById("luz");
+                lumElem.textContent = `Luminosidade: ${dados.luminosidade}`;
 
-         
-                const distElem = document.querySelector('#distanciaValue')
-                distElem.textContent = `Distância: ${dados.distancia} cm`
 
             } catch (error) {
                 console.error('Erro ao buscar dados do sensor:', error);

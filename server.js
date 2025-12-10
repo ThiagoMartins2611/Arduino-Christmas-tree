@@ -3,7 +3,7 @@ app = express()
 routes = require('express').Router()
 
 
-routes.get('/arduino/:sensor', (req, res) =>{
+routes.get('/teste/:sensor', (req, res) =>{
 
     const valor = req.params.sensor
     if(!valor){
